@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "vite-plugin-request-logger": "^1.2.6"
+  }
+}

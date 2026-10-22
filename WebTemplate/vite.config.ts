@@ -4,6 +4,7 @@ import path from 'path';
 import child_process from 'child_process';
 import { env } from 'process';
 import tailwindcss from '@tailwindcss/vite'
+import viteRequestLogger from 'vite-plugin-request-logger';
 
 const baseFolder =
     env.APPDATA !== undefined && env.APPDATA !== ''
@@ -34,7 +35,7 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [tailwindcss()],
+    plugins: [viteRequestLogger({ prefix: "/" }), tailwindcss()],
     appType: 'custom',
     root: 'Assets',
     publicDir: 'public',
