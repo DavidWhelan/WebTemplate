@@ -12,4 +12,4 @@ let pageHandler (ctx: HttpContext) =
 
 let clickHandler: HttpHandler = Response.ofHtml clickResponse
 
-let endpoints = [ get pageRoute pageHandler; get clickRoute clickHandler ]
+let endpoints = [ get pageRoute pageHandler; get clickRoute clickHandler; ]

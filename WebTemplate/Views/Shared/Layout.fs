@@ -18,7 +18,8 @@ let prodStyles (ctx: HttpContext) =
 
 let devScripts (ctx: HttpContext) =
     [ _script [ _type_ "module"; _src_ "https://localhost:5173/@vite/client" ] []
-      _script [ _type_ "module"; _src_ "js/app.ts" ] [] ]
+      _script [ _type_ "module"; _src_ "js/app.ts" ] []
+      _script [ _type_ "module"; ] [ _text "import \"https://localhost:5173/Program.fs\";" ]]
 
 
 let prodScripts (ctx: HttpContext) =

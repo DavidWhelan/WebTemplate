@@ -24,3 +24,6 @@ wapp
     .UseFalco(endpoints)
     .UseFalcoNotFound(ErrorController.notFound)
     .Run()
+
+    //TODO vite development server is not getting fable components properly
+    //maybe write a specific middleware to intercept .fs requests
