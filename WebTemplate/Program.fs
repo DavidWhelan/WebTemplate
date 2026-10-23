@@ -27,3 +27,8 @@ wapp
 
     //TODO vite development server is not getting fable components properly
     //maybe write a specific middleware to intercept .fs requests
+
+    //TODO move the components project into the assets folder. That way tailwind css can be used and vite will find the paths properly.
+    //https://github.com/fable-compiler/vite-plugin-fable/issues/75
+
+    //TODO add fsharp lint to whole solution or to the components project

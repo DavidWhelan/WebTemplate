@@ -47,7 +47,7 @@
 		  Command="dotnet fsharplint -f msbuild lint --lint-config $(MSBuildThisFileDirectory)/fsharplint.json $(MSBuildProjectFullPath)"
 		  ConsoleToMsBuild="true"
 		  IgnoreExitCode="false"
- />
+		/>
 	</Target>
 	
 	<!-- Ensure Node environment on Build -->
