@@ -27,7 +27,6 @@
 
 	<ItemGroup>
 		<Compile Include="Routes\IndexRoutes.fs" />
-		<Compile Include="Views\Shared\Theme.fs" />
 		<Compile Include="Views\Shared\Layout.fs" />
 		<Compile Include="Views\IndexView.fs" />
 		<Compile Include="Controllers\ErrorController.fs" />
@@ -43,11 +42,7 @@
 	</ItemGroup>
 
 	<Target Name="FSharpLint" AfterTargets="BeforeBuild" Condition="'$(DesignTimeBuild)' != 'true'">
-		<Exec
-		  Command="dotnet fsharplint -f msbuild lint --lint-config $(MSBuildThisFileDirectory)/fsharplint.json $(MSBuildProjectFullPath)"
-		  ConsoleToMsBuild="true"
-		  IgnoreExitCode="false"
-		/>
+		<Exec Command="dotnet fsharplint -f msbuild lint --lint-config $(MSBuildThisFileDirectory)/fsharplint.json $(MSBuildProjectFullPath)" ConsoleToMsBuild="true" IgnoreExitCode="false" />
 	</Target>
 	
 	<!-- Ensure Node environment on Build -->
