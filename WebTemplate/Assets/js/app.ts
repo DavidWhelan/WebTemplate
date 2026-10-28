@@ -1,3 +1,3 @@
 ﻿import './datastar.js'
-import '../../../WebTemplate.Components/Program.fs'
+import '../../../WebTemplate.Components/ClickCounter.fs'
 

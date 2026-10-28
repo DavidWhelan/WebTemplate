@@ -8,11 +8,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include="Program.fs" />
+		<Compile Include="ClickCounter.fs" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Fable.Core" Version="5.5.0" />
+		<PackageReference Include="Fable.Core" Version="5.6.0" />
+		<PackageReference Include="Firelight" Version="0.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="FSharp.Core" Version="10.1.403" />
 	</ItemGroup>
 
 </Project>

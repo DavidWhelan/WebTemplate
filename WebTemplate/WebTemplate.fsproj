@@ -41,6 +41,10 @@
 		<PackageReference Include="Vite.AspNetCore" Version="2.4.1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Update="FSharp.Core" Version="10.1.403" />
+	</ItemGroup>
+
 	<Target Name="FSharpLint" AfterTargets="BeforeBuild" Condition="'$(DesignTimeBuild)' != 'true'">
 		<Exec Command="dotnet fsharplint -f msbuild lint --lint-config $(MSBuildThisFileDirectory)/fsharplint.json $(MSBuildProjectFullPath)" ConsoleToMsBuild="true" IgnoreExitCode="false" />
 	</Target>

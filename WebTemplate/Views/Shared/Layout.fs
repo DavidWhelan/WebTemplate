@@ -8,23 +8,23 @@ open Vite.AspNetCore
 
 
 let devStyles (ctx: HttpContext) =
-    [ _link [ _href_ "css/app.css"; _rel_ "stylesheet" ] ]
+    [ _link [ _href_ "assets/css/app.css"; _rel_ "stylesheet" ] ]
 
 
 let prodStyles (ctx: HttpContext) =
     let manifest = ctx.Plug<IViteManifest>()
 
-    [ _link [ _href_ $"""/{manifest["css/app.css"].File}"""; _rel_ "stylesheet" ] ]
+    [ _link [ _href_ $"""/{manifest["assets/css/app.css"].File}"""; _rel_ "stylesheet" ] ]
 
 let devScripts (ctx: HttpContext) =
     [ _script [ _type_ "module"; _src_ "https://localhost:5173/@vite/client" ] []
-      _script [ _type_ "module"; _src_ "js/app.ts" ] [] ]
+      _script [ _type_ "module"; _src_ "assets/js/app.ts" ] [] ]
 
 
 let prodScripts (ctx: HttpContext) =
     let manifest = ctx.Plug<IViteManifest>()
 
-    [ _script [ _type_ "module"; _src_ $"""/{manifest["js/app.ts"].File}""" ] [] ]
+    [ _script [ _type_ "module"; _src_ $"""/{manifest["assets/js/app.ts"].File}""" ] [] ]
 
 let styles (ctx: HttpContext) =
     let env = ctx.Plug<IHostEnvironment>()

@@ -37,7 +37,6 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
 export default defineConfig({
     plugins: [viteRequestLogger({ prefix: "/" }), fable({ fsproj: "../WebTemplate.Components/WebTemplate.Components.fsproj" })],
     appType: 'custom',
-    root: 'Assets',
     publicDir: 'public',
     build: {
         emptyOutDir: true,
