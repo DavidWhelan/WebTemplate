@@ -35,14 +35,13 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [viteRequestLogger({ prefix: "/" }), fable({ fsproj: "../WebTemplate.Components/WebTemplate.Components.fsproj" })],
+    plugins: [viteRequestLogger({ prefix: "/" }), fable({ fsproj: "Components/WebTemplate.Components.fsproj" })],
     appType: 'custom',
-    root: 'Assets',
     publicDir: 'public',
     build: {
         emptyOutDir: true,
         manifest: true,
-        outDir: '../wwwroot',
+        outDir: './wwwroot',
         assetsDir: '',
         rolldownOptions: {
             input: ['Assets/js/app.ts', 'Assets/css/app.css']

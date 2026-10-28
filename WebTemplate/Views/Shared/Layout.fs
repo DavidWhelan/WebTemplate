@@ -8,7 +8,7 @@ open Vite.AspNetCore
 
 
 let devStyles (ctx: HttpContext) =
-    [ _link [ _href_ "css/app.css"; _rel_ "stylesheet" ] ]
+    [ _link [ _href_ "assets/css/app.css"; _rel_ "stylesheet" ] ]
 
 
 let prodStyles (ctx: HttpContext) =
@@ -18,7 +18,7 @@ let prodStyles (ctx: HttpContext) =
 
 let devScripts (ctx: HttpContext) =
     [ _script [ _type_ "module"; _src_ "https://localhost:5173/@vite/client" ] []
-      _script [ _type_ "module"; _src_ "js/app.ts" ] [] ]
+      _script [ _type_ "module"; _src_ "assets/js/app.ts" ] [] ]
 
 
 let prodScripts (ctx: HttpContext) =

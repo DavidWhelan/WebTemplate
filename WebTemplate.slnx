@@ -1,7 +1,4 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path="package.json" />
-  </Folder>
-  <Project Path="WebTemplate.Components/WebTemplate.Components.fsproj" Id="b8a2a409-74e3-4185-81ea-f46a6c21c4ec" />
+  <Project Path="WebTemplate/Components/WebTemplate.Components.fsproj" Id="b8a2a409-74e3-4185-81ea-f46a6c21c4ec" />
   <Project Path="WebTemplate/WebTemplate.fsproj" />
 </Solution>

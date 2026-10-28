@@ -11,8 +11,6 @@
 		<Compile Include="ClickCounter.fs" />
 	</ItemGroup>
 
-	<ItemGroup />
-
 	<ItemGroup>
 		<PackageReference Include="Fable.Core" Version="5.6.0" />
 		<PackageReference Include="Firelight" Version="0.3.0" />
