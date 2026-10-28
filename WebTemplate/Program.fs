@@ -28,12 +28,10 @@ wapp
     //TODO vite development server is not getting fable components properly
     //maybe write a specific middleware to intercept .fs requests
 
-    //TODO add fsharp lint to whole solution or to the components project
-
-    //TODO add web components
-
     //TODO add fss to web components
 
     //TODO change layout file more condusive to importing components
 
     //TODO Best way to reference components in Falco.Markup
+
+    //TODO look at myrid to generate component imports and references
