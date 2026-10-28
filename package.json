@@ -1,6 +1,6 @@
 {
-  "devDependencies": {
-    "vite-plugin-fable": "^0.6.0",
-    "vite-plugin-request-logger": "^1.2.6"
-  }
+  "workspaces": [
+    "WebTemplate",
+    "WebTemplate.Components"
+  ]
 }

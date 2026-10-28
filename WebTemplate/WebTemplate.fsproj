@@ -5,7 +5,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Remove="package-lock.json" />
 		<Content Remove="package.json" />
 		<Content Remove="tsconfig.json" />
 		<!-- Don't remove this line or your manifest.json won't be copied on publish -->
@@ -13,8 +12,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="package-lock.json" />
-		<None Include="package.json" />
 		<None Include="tsconfig.json" />
 		<None Include="vite.config.ts" />
 	</ItemGroup>
