@@ -24,6 +24,7 @@
 
 	<ItemGroup>
 		<Compile Include="Routes\IndexRoutes.fs" />
+		<Compile Include="Views\Shared\Components.fs" />
 		<Compile Include="Views\Shared\Layout.fs" />
 		<Compile Include="Views\IndexView.fs" />
 		<Compile Include="Controllers\ErrorController.fs" />
