@@ -1,17 +1,17 @@
 {
-  "css/app.css": {
+  "Assets/css/app.css": {
     "file": "app-x1XGuNl0.css",
     "name": "app",
     "names": [
       "app.css"
     ],
-    "src": "css/app.css",
+    "src": "Assets/css/app.css",
     "isEntry": true
   },
-  "js/app.ts": {
+  "Assets/js/app.ts": {
     "file": "app-Df7AmEJl.js",
     "name": "app",
-    "src": "js/app.ts",
+    "src": "Assets/js/app.ts",
     "isEntry": true
   }
 }
