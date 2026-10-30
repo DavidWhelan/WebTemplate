@@ -44,7 +44,7 @@ export default defineConfig({
         outDir: './wwwroot',
         assetsDir: '',
         rolldownOptions: {
-            input: ['Assets/js/app.ts', 'Assets/css/app.css']
+            input: ['Assets/js/datastar.js', 'Assets/js/app.ts', 'Assets/css/app.css']
         },
     },
     server: {

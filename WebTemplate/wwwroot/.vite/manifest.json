@@ -9,9 +9,15 @@
     "isEntry": true
   },
   "Assets/js/app.ts": {
-    "file": "app-Df7AmEJl.js",
+    "file": "app-Cl6yYgCr.js",
     "name": "app",
     "src": "Assets/js/app.ts",
+    "isEntry": true
+  },
+  "Assets/js/datastar.js": {
+    "file": "datastar-BsCCGtDt.js",
+    "name": "datastar",
+    "src": "Assets/js/datastar.js",
     "isEntry": true
   }
 }

@@ -1,3 +1,2 @@
-﻿import './datastar.js'
-import '../../Components/ClickCounter.fs'
+﻿import '../../Components/ClickCounter.fs'
 
