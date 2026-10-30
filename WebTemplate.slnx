@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="WebTemplate/Components/WebTemplate.Components.fsproj" Id="b8a2a409-74e3-4185-81ea-f46a6c21c4ec" />
-  <Project Path="WebTemplate/WebTemplate.fsproj" />
+  <Project Path="Client/WebTemplate.Client.fsproj" />
+  <Project Path="Server/WebTemplate.Server.fsproj" />
 </Solution>

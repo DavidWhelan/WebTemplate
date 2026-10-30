@@ -2,53 +2,34 @@
 
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+		<DisableImplicitFSharpCoreReference>false</DisableImplicitFSharpCoreReference>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<Content Remove="tsconfig.json" />
-		<!-- Don't remove this line or your manifest.json won't be copied on publish -->
-		<Content Include="wwwroot\.vite\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Remove="Components\**" />
-	  <EmbeddedResource Remove="Components\**" />
+    <ItemGroup>
+		<Compile Include="Components\ClickCounter.fs" />
+		<TypeScriptCompile Include="js\app.ts" />
+		<None Include="js\datastar.js" />
+		<Content Include="css\app.css" />
+		<TypeScriptCompile Include="main.ts" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="tsconfig.json" />
 		<None Include="vite.config.ts" />
 	</ItemGroup>
-	
-	<ItemGroup>
-		<TypeScriptCompile Include="Assets\js\app.ts" />
-		<None Include="Assets\js\datastar.js" />
-		<Content Include="Assets\css\app.css" />
-	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include="Routes\IndexRoutes.fs" />
-		<Compile Include="Views\Shared\Components.fs" />
-		<Compile Include="Views\Shared\Layout.fs" />
-		<Compile Include="Views\IndexView.fs" />
-		<Compile Include="Controllers\ErrorController.fs" />
-		<Compile Include="Controllers\IndexController.fs" />
-		<Compile Include="Program.fs" />
+		<PackageReference Include="Fable.Core" Version="5.6.0" />
+		<PackageReference Include="Firelight" Version="0.3.0" />
+		<PackageReference Include="Fss-lib.Core" Version="3.0.0" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Falco" Version="5.2.0" />
-		<PackageReference Include="Falco.Datastar" Version="1.3.0" />
-		<PackageReference Include="Falco.Markup" Version="1.4.0" />
-		<PackageReference Include="Vite.AspNetCore" Version="2.4.1" />
-	</ItemGroup>
-
-	<ItemGroup />
 
 	<ItemGroup>
 	  <PackageReference Update="FSharp.Core" Version="10.1.403" />
 	</ItemGroup>
-	
+
 	<!-- Ensure Node environment on Build -->
 	<Target Name="DebugEnsureNodeEnv" BeforeTargets="Build;PublishBuildAssets" Condition=" !Exists('node_modules') ">
 		<!-- Ensure Node.js is installed -->
@@ -66,5 +47,4 @@
 		<!-- Build the final assets -->
 		<Exec Command="npm run build" />
 	</Target>
-
 </Project>

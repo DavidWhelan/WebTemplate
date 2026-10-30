@@ -35,16 +35,16 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [viteRequestLogger({ prefix: "/" }), fable({ fsproj: "Components/WebTemplate.Components.fsproj" })],
+    plugins: [viteRequestLogger({ prefix: "/" }), fable()],
     appType: 'custom',
     publicDir: 'public',
     build: {
         emptyOutDir: true,
         manifest: true,
-        outDir: './wwwroot',
+        outDir: '../Server/wwwroot',
         assetsDir: '',
         rolldownOptions: {
-            input: ['Assets/js/datastar.js', 'Assets/js/app.ts', 'Assets/css/app.css']
+            input: ['js/datastar.js', 'main.ts', 'css/app.css']
         },
     },
     server: {
