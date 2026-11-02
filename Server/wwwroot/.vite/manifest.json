@@ -1,0 +1,23 @@
+{
+  "css/app.css": {
+    "file": "app-x1XGuNl0.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "css/app.css",
+    "isEntry": true
+  },
+  "js/datastar.js": {
+    "file": "datastar-BsCCGtDt.js",
+    "name": "datastar",
+    "src": "js/datastar.js",
+    "isEntry": true
+  },
+  "main.ts": {
+    "file": "main-Cl6yYgCr.js",
+    "name": "main",
+    "src": "main.ts",
+    "isEntry": true
+  }
+}

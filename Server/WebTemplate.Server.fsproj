@@ -5,6 +5,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Content Include="wwwroot\.vite\**" />
+	</ItemGroup>
+	
+	<ItemGroup>
 		<Compile Include="Routes\IndexRoutes.fs" />
 		<Compile Include="Views\Shared\Components.fs" />
 		<Compile Include="Views\Shared\Layout.fs" />
