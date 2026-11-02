@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="Client/WebTemplate.Client.fsproj" />
+  <Project Path="Assets/WebTemplate.Assets.fsproj" />
   <Project Path="Server/WebTemplate.Server.fsproj" />
 </Solution>
