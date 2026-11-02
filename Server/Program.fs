@@ -20,7 +20,7 @@ wapp
     .UseIf(isDevelopment, WebSocketMiddlewareExtensions.UseWebSockets)
     .UseIf(isDevelopment, fun (appl: IApplicationBuilder) -> appl.UseViteDevelopmentServer(true))
     .Use(DefaultFilesExtensions.UseDefaultFiles)
-    .Use(StaticFileExtensions.UseStaticFiles)
+    .UseIf(not (isDevelopment), StaticFileExtensions.UseStaticFiles)
     .UseFalco(endpoints)
     .UseFalcoNotFound(ErrorController.notFound)
     .Run()
