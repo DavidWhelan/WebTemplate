@@ -26,7 +26,6 @@
 	<ItemGroup>
 		<PackageReference Include="Fable.Core" Version="5.6.0" />
 		<PackageReference Include="Firelight" Version="0.3.0" />
-		<PackageReference Include="Fss-lib.Core" Version="3.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
