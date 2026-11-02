@@ -35,5 +35,3 @@ wapp
 //TODO Best way to reference components in Falco.Markup
 
 //TODO look at myrid to generate component imports and references
-
-//TODO change how server is linked to client so that the client isn't built as an exe and it executes the npm tasks

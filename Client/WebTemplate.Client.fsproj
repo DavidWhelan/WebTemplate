@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
@@ -7,12 +7,15 @@
 		<DisableImplicitFSharpCoreReference>false</DisableImplicitFSharpCoreReference>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<Content Include="js\app.ts" />
+		<Content Include="js\datastar.js" />
+		<Content Include="css\app.css" />
+		<Content Include="main.ts" />
+	</ItemGroup>
+	
     <ItemGroup>
 		<Compile Include="Components\ClickCounter.fs" />
-		<TypeScriptCompile Include="js\app.ts" />
-		<None Include="js\datastar.js" />
-		<Content Include="css\app.css" />
-		<TypeScriptCompile Include="main.ts" />
 	</ItemGroup>
 
 	<ItemGroup>
