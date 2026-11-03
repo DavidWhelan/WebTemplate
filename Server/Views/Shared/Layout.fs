@@ -31,21 +31,19 @@ let prodScripts (ctx: HttpContext) =
 let styles (ctx: HttpContext) =
     let env = ctx.Plug<IHostEnvironment>()
 
-    []
-    @ match env.EnvironmentName with
-      | "Development" -> devStyles ctx
-      | "Production" -> prodStyles ctx
-      | _ -> []
+    match env.EnvironmentName with
+    | "Development" -> devStyles ctx
+    | "Production" -> prodStyles ctx
+    | _ -> []
 
 let scripts (ctx: HttpContext) =
     let env = ctx.Plug<IHostEnvironment>()
 
-    []
-    @ match env.EnvironmentName with
-      | "Development" -> devScripts ctx
-      | "Production" -> prodScripts ctx
-      | _ -> []
+    match env.EnvironmentName with
+    | "Development" -> devScripts ctx
+    | "Production" -> prodScripts ctx
+    | _ -> []
 
 let template (content: XmlNode list) (ctx: HttpContext) =
 
-    _html [ _lang_ "en" ] [ _head [] ([] @ styles ctx); _body [] (content @ scripts ctx) ]
+    _html [ _lang_ "en" ] [ _head [] (styles ctx); _body [] (content @ scripts ctx) ]
