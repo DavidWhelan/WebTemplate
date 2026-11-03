@@ -26,7 +26,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Client\WebTemplate.Client.fsproj" />
+	  <ProjectReference Include="..\Assets\WebTemplate.Assets.fsproj" />
 	</ItemGroup>
 
 	<ItemGroup>
