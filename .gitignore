@@ -361,6 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/WebTemplate.Components/fable_modules/Firelight.0.3.0
-/WebTemplate/Components/fable_modules/Firelight.0.3.0
-/Assets/fable_modules
+
+/src/Assets/fable_modules
