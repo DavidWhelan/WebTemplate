@@ -3,6 +3,7 @@
 open Fable.Core
 open Firelight
 open type Firelight.Lit
+open Firelight.Html
 
 [<AttachMembers>]
 type ClickCounter() =
@@ -21,11 +22,11 @@ type ClickCounter() =
     member val count = 0 with get, set
 
     override this.render() =
-        html
-            $"""
-                <button @click={fun _ -> this.count <- this.count + 1}>
-                    Clicked {this.count} times
-                </button>
-            """
+        view {
+            button {
+                onClick (fun _ -> this.count <- this.count + 1)
+                $"Clicked {this.count} times"
+            }
+        }
 
 defineElement<ClickCounter> "click-counter"

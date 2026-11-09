@@ -376,7 +376,7 @@ module LitInterop =
     /// Creates a fragment from a list of nodes.
     let fragment (nodes: Node list) : Node = Fragment nodes
 
-    /// Renders a list keyed by `getKey` (Lit's `repeat` directive): each item's DOM is kept
-    /// and moved when items are inserted, removed or reordered, instead of being diffed by position.
-    let forKeyed (getKey: 'T -> string) (items: 'T seq) (render: 'T -> Node) : Node =
-        Template(Lit.mapUnique getKey (render >> Renderer.render) items)
+/// Renders a list keyed by `getKey` (Lit's `repeat` directive): each item's DOM is kept
+/// and moved when items are inserted, removed or reordered, instead of being diffed by position.
+//let forKeyed (getKey: 'T -> string) (items: 'T seq) (render: 'T -> Node) : Node =
+//    Template(Lit.mapUnique getKey (render >> Renderer.render) items)
