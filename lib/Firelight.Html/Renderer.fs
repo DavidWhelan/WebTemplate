@@ -13,15 +13,15 @@ module internal JsInterop =
 
     /// Calls a tagged template function with string parts and values.
     [<Emit("$0($1, ...$2)")>]
-    let callTagFn (tagFn: obj) (strings: obj) (values: obj[]) : HTMLTemplateResult = jsNative
+    let callTagFn (tagFn: obj) (strings: obj) (values: obj[]) : ChildRenderable = jsNative
 
     /// The Lit html tag function.
     [<Import("html", "lit")>]
     let htmlTagFn: obj = jsNative
 
-    /// Creates an empty HTMLTemplateResult (Lit.nothing equivalent).
+    /// Creates an empty ChildRenderable (Lit.nothing equivalent).
     [<Emit("$0``")>]
-    let emptyTemplate (tagFn: obj) : HTMLTemplateResult = jsNative
+    let emptyTemplate (tagFn: obj) : ChildRenderable = jsNative
 
     /// JavaScript Map for caching template strings.
     [<Emit("new Map()")>]
@@ -49,13 +49,13 @@ module internal TemplateCache =
             JsInterop.mapSet cache key templateStrings
             templateStrings
 
-/// Converts DSL Nodes to Lit HTMLTemplateResults.
+/// Converts DSL Nodes to Lit ChildRenderables.
 [<RequireQualifiedAccess>]
 module Renderer =
 
     /// Creates a Lit template from string parts and interpolated values.
     /// Uses cached template strings to ensure Lit can efficiently diff templates.
-    let private createTemplate (strings: string list) (values: obj list) : HTMLTemplateResult =
+    let private createTemplate (strings: string list) (values: obj list) : ChildRenderable =
         let templateStrings = TemplateCache.getTemplateStrings strings
         JsInterop.callTagFn JsInterop.htmlTagFn templateStrings (List.toArray values)
 
@@ -103,8 +103,8 @@ module Renderer =
 
         loop attrs [ "" ] []
 
-    /// Renders a Node to a HTMLTemplateResult.
-    let rec render (node: Node) : HTMLTemplateResult =
+    /// Renders a Node to a ChildRenderable.
+    let rec render (node: Node) : ChildRenderable =
         match node with
         | Text t ->
             // Pass the string itself as the value so Lit renders it as escaped text
@@ -112,10 +112,10 @@ module Renderer =
 
         | RawHtml raw ->
             // Use Lit's unsafeHTML directive
-            Lit.html $"{Lit.unsafeHTML raw}"
+            Lit.unsafeHTML raw
 
         | Template t ->
-            // Already a HTMLTemplateResult, pass through
+            // Already a ChildRenderable, pass through
             t
 
         | Fragment nodes ->
@@ -141,7 +141,7 @@ module Renderer =
         | Element(tag, attrs, children) -> renderElement tag attrs children
 
     /// Renders an element node with its attributes and children.
-    and private renderElement (tag: string) (attrs: Attr list) (children: Node list) : HTMLTemplateResult =
+    and private renderElement (tag: string) (attrs: Attr list) (children: Node list) : ChildRenderable =
         // Build the template strings and values
         // Pattern: ["<tag ", " attrs>", "", ..., "</tag>"] with ref directive first in element position
 
@@ -246,5 +246,5 @@ module Renderer =
             let allValues = refVals @ attrVals @ (children |> List.map box)
             createTemplate allStrings allValues
 
-    /// Renders a Node to a HTMLTemplateResult (alias for render).
-    let toHTMLTemplateResult = render
+    /// Renders a Node to a ChildRenderable (alias for render).
+    let toChildRenderable = render

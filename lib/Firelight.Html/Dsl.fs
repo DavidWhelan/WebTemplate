@@ -106,7 +106,7 @@ type TemplateBuilder() =
 type ViewBuilder() =
     inherit TemplateBuilder()
 
-    member _.Run(content: Node) : TemplateResult = Renderer.render content
+    member _.Run(content: Node) : ChildRenderable = Renderer.render content
 
 // =============================================================================
 // DSL Entry Points
