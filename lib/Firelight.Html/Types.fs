@@ -25,6 +25,6 @@ type Node =
     /// Produced by the builders' Combine so that a parent's template stays stable across renders.
     | Sequence of Node list
     | RawHtml of string
-    | Template of HTMLTemplateResult
+    | Template of ChildRenderable
     | AttrNode of Attr
     | Nothing

@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<Compile Include="FormattableExplore.fs" />
 	<Compile Include="Types.fs" />
 	<Compile Include="Renderer.fs" />
     <Compile Include="Dsl.fs" />

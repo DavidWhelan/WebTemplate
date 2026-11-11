@@ -42,7 +42,7 @@ type ElementBuilder(tag: string) =
 
     member _.Yield(attr: Attr) : Node = AttrNode attr
 
-    member _.Yield(template: HTMLTemplateResult) : Node = Template template
+    member _.Yield(template: ChildRenderable) : Node = Template template
 
     member _.Yield(()) : Node = Nothing
 
@@ -80,7 +80,7 @@ type TemplateBuilder() =
 
     member _.Yield(attr: Attr) : Node = AttrNode attr
 
-    member _.Yield(t: HTMLTemplateResult) : Node = Template t
+    member _.Yield(t: ChildRenderable) : Node = Template t
 
     member _.Yield(()) : Node = Nothing
 
@@ -101,7 +101,7 @@ type TemplateBuilder() =
         | Sequence nodes -> Fragment nodes
         | other -> other
 
-/// Builder for creating views that auto-render to HTMLTemplateResult.
+/// Builder for creating views that auto-render to ChildRenderable.
 /// Use this at the top level of components.
 type ViewBuilder() =
     inherit TemplateBuilder()
@@ -118,7 +118,7 @@ module HtmlDsl =
     /// Use this for nested fragments inside elements.
     let template = TemplateBuilder()
 
-    /// Creates a view that auto-renders to HTMLTemplateResult.
+    /// Creates a view that auto-renders to ChildRenderable.
     /// Use this at the top level of components.
     let view = ViewBuilder()
 
@@ -364,8 +364,8 @@ module Attrs =
 
 [<AutoOpen>]
 module LitInterop =
-    /// Embeds an existing Lit HTMLTemplateResult inside the DSL.
-    let lit (t: HTMLTemplateResult) : Node = Template t
+    /// Embeds an existing Lit ChildRenderable inside the DSL.
+    let lit (t: ChildRenderable) : Node = Template t
 
     /// Embeds raw HTML (rendered via Lit's unsafeHTML).
     let rawHtml (s: string) : Node = RawHtml s
@@ -376,7 +376,7 @@ module LitInterop =
     /// Creates a fragment from a list of nodes.
     let fragment (nodes: Node list) : Node = Fragment nodes
 
-/// Renders a list keyed by `getKey` (Lit's `repeat` directive): each item's DOM is kept
-/// and moved when items are inserted, removed or reordered, instead of being diffed by position.
-//let forKeyed (getKey: 'T -> string) (items: 'T seq) (render: 'T -> Node) : Node =
-//    Template(Lit.mapUnique getKey (render >> Renderer.render) items)
+    /// Renders a list keyed by `getKey` (Lit's `repeat` directive): each item's DOM is kept
+    /// and moved when items are inserted, removed or reordered, instead of being diffed by position.
+    let forKeyed (items: 'T seq) (getKey: 'T -> 'K) (template: 'T -> Node) : Node =
+        Template(Lit.repeat (items, getKey, (template >> Renderer.render)))
