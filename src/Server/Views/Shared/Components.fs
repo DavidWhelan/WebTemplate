@@ -5,5 +5,5 @@ module Elem =
 
 [<AutoOpen>]
 module Html =
-    let _clickCounter (attrs: XmlAttribute list) (children: XmlNode list) : XmlNode =
+    let inline _clickCounter (attrs: XmlAttribute list) (children: XmlNode list) : XmlNode =
         Elem.clickCounter attrs children

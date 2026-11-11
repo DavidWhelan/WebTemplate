@@ -9,7 +9,16 @@ open Routes
 
 let page: HttpContext -> XmlNode =
     Layout.template
-        [ _h1 [] [ _text "Example: Hello World" ]
-          _button [ _id_ "hello"; Ds.onClick (Ds.get IndexRoutes.clickRoute) ] [ _text "Click Me" ] ]
+        [ _h1 [] [ _text "Example: Click Counter" ]
+          _button [ _id_ "click-counter"; Ds.onClick (Ds.get IndexRoutes.clickRoute) ] [ _text "Click Me" ] ]
 
-let clickResponse = _h2 [ _id_ "hello" ] [ _clickCounter [] [] ]
+let count = Signal.browser<int> "count"
+
+let clickResponse =
+    _div
+        [ _id_ "click-counter" ]
+        [ _clickCounter
+              [ _label_ "Liked"
+                Ds.attr' ("count", (Expr.read count))
+                Ds.onEvent ("count-changed", Stmt.set count (Expr.unsafeRaw "evt.detail")) ]
+              [] ]
