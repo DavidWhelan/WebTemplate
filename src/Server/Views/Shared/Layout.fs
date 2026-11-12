@@ -17,7 +17,7 @@ let styles = [ _link [ _href_ "assets/app.css"; _rel_ "stylesheet" ] ]
 
 let scripts =
     [ _script [ _type_ "module"; _src_ "js/datastar.js" ] []
-      _script [ _type_ "module"; _src_ "Components/ClickCounter.fs?import" ] [] ]
+      _script [ _type_ "module"; _src_ "components/ClickCounter.fs?import" ] [] ]
     @ debugScript
 
 let template (content: XmlNode list) =

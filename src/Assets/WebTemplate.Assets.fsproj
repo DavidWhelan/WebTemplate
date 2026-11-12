@@ -8,13 +8,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Include="fs\Autoloader.fs" />
 		<Content Include="js\datastar.js" />
 		<Content Include="assets\app.css" />
-		<Folder Include="fs\" />
 	</ItemGroup>
 	
     <ItemGroup>
-		<Compile Include="Components\ClickCounter.fs" />
+		<Compile Include="components\ClickCounter.fs" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -43,11 +43,11 @@ export default defineConfig({
         outDir: '../Server/wwwroot',
         assetsDir: '',
         rolldownOptions: {
-            input: ['js/datastar.js', 'assets/app.css', 'Components/ClickCounter.fs'],
+            input: ['js/datastar.js', 'assets/app.css', 'components/ClickCounter.fs'],
             output: {
                 entryFileNames: (chunkInfo) => {
-                    if (chunkInfo.facadeModuleId?.endsWith(".fs") && chunkInfo.facadeModuleId?.includes("Components")) {
-                        return "Components/[name].fs"
+                    if (chunkInfo.facadeModuleId?.endsWith(".fs") && chunkInfo.facadeModuleId?.includes("components")) {
+                        return "components/[name].fs"
                     }
                     else if (chunkInfo.facadeModuleId?.endsWith(".fs")) {
                         return "fs/[name].fs"
