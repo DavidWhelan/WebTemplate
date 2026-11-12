@@ -7,41 +7,39 @@ open Falco.Markup
 open Vite.AspNetCore
 
 
-let devStyles (ctx: HttpContext) =
-    [ _link [ _href_ "css/app.css"; _rel_ "stylesheet" ] ]
+let devStyles =
+    [ _link [ _href_ "assets/app.css"; _rel_ "stylesheet" ] ]
 
 
-let prodStyles (ctx: HttpContext) =
-    let manifest = ctx.Plug<IViteManifest>()
+let prodStyles =
 
-    [ _link [ _href_ $"""/{manifest["css/app.css"].File}"""; _rel_ "stylesheet" ] ]
+    [ _link [ _href_ "assets/app.css"; _rel_ "stylesheet" ] ]
 
-let devScripts (ctx: HttpContext) =
+let devScripts =
     [ _script [ _type_ "module"; _src_ "https://localhost:5173/@vite/client" ] []
       _script [ _type_ "module"; _src_ "js/datastar.js" ] []
-      _script [ _type_ "module"; _src_ "main.ts" ] [] ]
+      _script [ _type_ "module"; _src_ "Components/ClickCounter.fs?import" ] [] ]
 
 
-let prodScripts (ctx: HttpContext) =
-    let manifest = ctx.Plug<IViteManifest>()
+let prodScripts =
 
-    [ _script [ _type_ "module"; _src_ $"""/{manifest["js/datastar.js"].File}""" ] []
-      _script [ _type_ "module"; _src_ $"""/{manifest["main.ts"].File}""" ] [] ]
+    [ _script [ _type_ "module"; _src_ "js/datastar.js" ] []
+      _script [ _type_ "module"; _src_ "Components/ClickCounter.fs" ] [] ]
 
 let styles (ctx: HttpContext) =
     let env = ctx.Plug<IHostEnvironment>()
 
     match env.EnvironmentName with
-    | "Development" -> devStyles ctx
-    | "Production" -> prodStyles ctx
+    | "Development" -> devStyles
+    | "Production" -> prodStyles
     | _ -> []
 
 let scripts (ctx: HttpContext) =
     let env = ctx.Plug<IHostEnvironment>()
 
     match env.EnvironmentName with
-    | "Development" -> devScripts ctx
-    | "Production" -> prodScripts ctx
+    | "Development" -> devScripts
+    | "Production" -> prodScripts
     | _ -> []
 
 let template (content: XmlNode list) (ctx: HttpContext) =

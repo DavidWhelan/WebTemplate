@@ -2,6 +2,7 @@ open Microsoft.AspNetCore.Builder
 open Falco
 open Vite.AspNetCore
 open Controllers
+open Microsoft.AspNetCore.StaticFiles
 
 let endpoints = IndexController.endpoints
 
@@ -13,6 +14,12 @@ let wapp = bldr.Build()
 
 let isDevelopment = wapp.Environment.EnvironmentName = "Development"
 
+let provider = new FileExtensionContentTypeProvider();
+provider.Mappings[".fs"] <- "text/javascript"
+
+let staticFileoptions = new StaticFileOptions()
+staticFileoptions.ContentTypeProvider <- provider
+
 wapp
     .UseRouting()
     .UseIf(isDevelopment, DeveloperExceptionPageExtensions.UseDeveloperExceptionPage)
@@ -20,7 +27,7 @@ wapp
     .UseIf(isDevelopment, WebSocketMiddlewareExtensions.UseWebSockets)
     .UseIf(isDevelopment, fun (appl: IApplicationBuilder) -> appl.UseViteDevelopmentServer(true))
     .Use(DefaultFilesExtensions.UseDefaultFiles)
-    .UseIf(not (isDevelopment), StaticFileExtensions.UseStaticFiles)
+    .UseIf(not (isDevelopment), fun(appl: IApplicationBuilder) -> appl.UseStaticFiles(staticFileoptions))
     .UseFalco(endpoints)
     .UseFalcoNotFound(ErrorController.notFound)
     .Run()

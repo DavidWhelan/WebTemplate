@@ -8,10 +8,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="js\app.ts" />
 		<Content Include="js\datastar.js" />
-		<Content Include="css\app.css" />
-		<Content Include="main.ts" />
+		<Content Include="assets\app.css" />
 	</ItemGroup>
 	
     <ItemGroup>
