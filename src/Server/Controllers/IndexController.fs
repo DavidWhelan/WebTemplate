@@ -6,10 +6,8 @@ open Microsoft.AspNetCore.Http
 open Falco
 open Falco.Routing
 
-let pageHandler (ctx: HttpContext) =
-    let markup = page ctx
-    Response.ofHtml markup ctx
+let pageHandler = Response.ofHtml page
 
 let clickHandler: HttpHandler = Response.ofHtml clickResponse
 
-let endpoints = [ get pageRoute pageHandler; get clickRoute clickHandler; ]
+let endpoints = [ get pageRoute pageHandler; get clickRoute clickHandler ]

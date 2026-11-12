@@ -7,7 +7,7 @@ open Falco.Datastar
 open Views.Shared
 open Routes
 
-let page: HttpContext -> XmlNode =
+let page =
     Layout.template
         [ _h1 [] [ _text "Example: Click Counter" ]
           _button [ _id_ "click-counter"; Ds.onClick (Ds.get IndexRoutes.clickRoute) ] [ _text "Click Me" ] ]

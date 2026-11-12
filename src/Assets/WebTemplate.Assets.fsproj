@@ -10,6 +10,7 @@
 	<ItemGroup>
 		<Content Include="js\datastar.js" />
 		<Content Include="assets\app.css" />
+		<Folder Include="fs\" />
 	</ItemGroup>
 	
     <ItemGroup>

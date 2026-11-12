@@ -38,18 +38,24 @@ export default defineConfig({
     plugins: [viteRequestLogger({ prefix: "/" }), fable()],
     appType: 'custom',
     publicDir: 'public',
-    input: ['js/datastar.js', 'assets/app.css', 'Components/ClickCounter.fs'],
     build: {
         emptyOutDir: true,
         outDir: '../Server/wwwroot',
         assetsDir: '',
         rolldownOptions: {
+            input: ['js/datastar.js', 'assets/app.css', 'Components/ClickCounter.fs'],
             output: {
                 entryFileNames: (chunkInfo) => {
                     if (chunkInfo.facadeModuleId?.endsWith(".fs") && chunkInfo.facadeModuleId?.includes("Components")) {
                         return "Components/[name].fs"
                     }
-                    return "js/[name].js"
+                    else if (chunkInfo.facadeModuleId?.endsWith(".fs")) {
+                        return "fs/[name].fs"
+                    }
+                    else {
+                        return "js/[name].js"
+                    }
+                    
                 },
                 assetFileNames: `assets/[name].[ext]`
             }
